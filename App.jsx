@@ -7,6 +7,7 @@ import AppNavigator from './navigators/AppNavigator';
  
 
 export default function App() {
+
   const { signedIn, authChecked, loaded, error, onLayoutRootView } = useInitializeApp();
 
   if (!authChecked || (!loaded && !error)) {
@@ -17,7 +18,7 @@ export default function App() {
   //   console.warn=()=>{}
   // }
   return (
-  <View onLayout={onLayoutRootView} style={{ flex: 1, backgroundColor: 'white' }}>   
+  <View onLayout={onLayoutRootView} style={{ flex: 1, backgroundColor: 'black' }}>   
     <PopupMenuProvider>
         <AppNavigator signedIn={signedIn}/>
     </PopupMenuProvider>

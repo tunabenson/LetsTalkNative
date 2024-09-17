@@ -34,7 +34,7 @@ function ReportModal({close, submitHandler}) {
   return (
     <Modal animationType='slide' transparent={true} visible={true}>
     <TouchableWithoutFeedback onPress={()=>close()}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.3)' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0000004d' }}>
         <View className="bg-white p-4 rounded-lg w-11/12">
           <ScrollView>
             {reportReasons.map((reason, index) => (

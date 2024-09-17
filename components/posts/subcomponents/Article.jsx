@@ -10,9 +10,7 @@ function Article({url, onArticleFetch}) {
         const fetchedArticle= await getArticleTitleFromURL({url});
         const temp={...fetchedArticle, link: url};
         setArticle(temp)
-        if (onArticleFetch) {
-            onArticleFetch(article);
-          } 
+        onArticleFetch(temp);
     }
     getArticle();       
     

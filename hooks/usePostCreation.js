@@ -29,7 +29,8 @@ const usePostCreation = (navigation, url, replyingTo) => {
       username: user,
       usePoliticalAnalysis: usePoliticalAnalysis,
     };
-    if (url) {
+    if (article) {
+      console.log('creating post', article)
       post.article = article;
     }
     try {

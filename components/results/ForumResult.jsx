@@ -29,8 +29,8 @@ const ForumResult = ({ item, navigation, handler, small,disabled}) => {
       />
     </View>
     <View>
-      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-lg font-semibold text-black">#{item.name.toUpperCase()}</Text>
-      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-md font-semibold text-black">{`${item.description.substring(0, 50)}...`}</Text>
+      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-lg font-semibold text-black">#{item.name?.toUpperCase()}</Text>
+      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-md font-semibold text-black">{`${item.description?.substring(0, 50)}...`}</Text>
     </View></>):(<>
   <View className="relative w-10 h-10 rounded-full border-2 border-black overflow-visible">
       <Octicons
@@ -41,8 +41,8 @@ const ForumResult = ({ item, navigation, handler, small,disabled}) => {
       />
     </View>
     <View className='w-11/12'>
-      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-md font-semibold text-black">#{item.name.toUpperCase()}</Text>
-      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-md font-semibold text-black">{`${item.description.substring(0, 50)}...`}</Text>
+      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-md font-semibold text-black">#{item.name?.toUpperCase()}</Text>
+      <Text style={{fontFamily:'Amiri'}} className="pl-4 text-md font-semibold text-black">{`${item.description?.substring(0, 50)}...`}</Text>
     </View></>)}
     </>
     </TouchableOpacity>

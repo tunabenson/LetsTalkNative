@@ -7,7 +7,7 @@ function LoadingPage() {
     <View className='flex-1 bg-primarycolor-4 justify-center align-middle'>
 
     <LottieView
-            source={require('../assets/animations/loading-animation.json')}
+            source={require('../assets/animations/loadingAnimation.json')}
             autoPlay
             loop
             style={{ width: 400, height: 400 , alignSelf:'center'}}

@@ -9,7 +9,7 @@ const useInitializeApp = () => {
   const [signedIn, setSignedIn] = useState(false);
   const [authChecked, setAuthIsChecked] = useState(false);
   const [loaded, error] = useFonts({
-    'Amiri': require('../assets/fonts/Exo/Exo-Regular.ttf'),
+    'Amiri': require('../assets/fonts/Exo/ExoRegular.ttf'),
   });
 
 

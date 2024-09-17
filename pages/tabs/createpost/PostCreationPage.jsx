@@ -2,7 +2,6 @@ import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, ScrollView, Switch, Text, TextInput, TouchableOpacity, View } from "react-native";
 import PostResult from "../../../components/results/PostResult";
 import Article from "../../../components/posts/subcomponents/Article";
-import { useEffect, useState } from "react";
 
 const PostCreationPage = ({ navigation, route, replyingTo, handler}) => {
    
@@ -38,7 +37,7 @@ const PostCreationPage = ({ navigation, route, replyingTo, handler}) => {
 
         {url ? (
           <View className="rounded-2xl flex-row mb-3">
-            <Article url={url} onArticleFetch={(data)=>{handler.setArticle(data)}} />
+            <Article url={url} onArticleFetch={(data)=>{ console.log('data',data);handler.setArticle(data)}} />
             <TouchableOpacity  className='m-4 mt-6' onPress={()=>{handler.setArticle(undefined); navigation.setParams({url:null})}}>
             <FontAwesome name="trash-o" size={30} color="white" />
             </TouchableOpacity>
