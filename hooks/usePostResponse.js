@@ -27,8 +27,12 @@ const usePostResponse = (navigation, url, replyingTo) => {
       text: content,
       username: user,
       usePoliticalAnalysis: usePoliticalAnalysis,
-      article: url ? article : null,
     };
+    console.log('outside of if',article)
+    if(article){
+      console.log(article)
+      post.article=article;
+    }
 
     try {
       const response = await createPost({post, forum: parentForum, path: replyingTo.path?.concat('/replies'), isResponse: true});

@@ -29,7 +29,6 @@ const Stack = createStackNavigator();
 
 const Account = ({ route, navigation }) => {
   const { username } = route.params;
-  console.log(username)
   const {account, fetchMoreUserPosts, posts}=useAccount(username); 
 
 

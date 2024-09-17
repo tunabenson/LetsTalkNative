@@ -131,7 +131,7 @@ function PopupMenu({ popupData ,hidePopup}) {
         animationType="slide"
       >
         <TouchableWithoutFeedback onPress={hidePopup}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.3)' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0000004d' }}>
               <View className="bg-white p-4 rounded-lg w-11/12 mb-2">
                 {!playAnimationReport ? (
                   <View>
@@ -175,7 +175,7 @@ function PopupMenu({ popupData ,hidePopup}) {
                 ) : (
                   <LottieView
                     autoPlay={true}
-                    source={require('../../../../assets/animations/report-animation.json')}
+                    source={require('../../../../assets/animations/reportAnimation.json')}
                     loop={false}
                     style={{ width: 150, height: 150, alignSelf: 'center' }}
                   />
@@ -192,7 +192,7 @@ function PopupMenu({ popupData ,hidePopup}) {
         onRequestClose={() => hidePopup()}
       >
         <TouchableWithoutFeedback onPress={() => hidePopup()}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.3)' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0000004d' }}>
               <View className="bg-white p-4 rounded-lg w-11/12 mb-2">
               <TextInput
                 value={editText}

@@ -11,11 +11,10 @@ import { FlashList } from '@shopify/flash-list';
 
 export const FullPostScreen = ({ route, navigation }) => {
     // const [responses, setResponses]=useState([]);
-    const {getChildrenPosts, getMorePosts,mainPost, responses, toggleMainPost}=useConversation(route.params.item);
+    const {getChildrenPosts,getParentPost,hasParent, getMorePosts,mainPost, responses, toggleMainPost}=useConversation(route.params.item);
     const depth=useRef(0);
     const position = useRef(new Animated.Value(route.params?.yValue || 30 )).current; // Starting at 0
     useEffect(() => {
-      console.log(depth)
       depth.current=depth.current+1
       position.setValue(150);
       Animated.spring(position, {
@@ -27,15 +26,24 @@ export const FullPostScreen = ({ route, navigation }) => {
     }, [mainPost]);
     return (
       <View className="flex-1 bg-primarycolor-4 pt-10">
+        
+
+      {hasParent() ? (
         <TouchableOpacity
+          className="absolute top-8 left-2  p-4"
+          onPress={getParentPost}
+          hitSlop={30}
+        >
+        <AntDesign name="arrowleft" size={20} color="white" />
+
+        </TouchableOpacity>):(<TouchableOpacity
           className="absolute top-8 left-2  p-4"
           onPress={() => navigation.goBack()}
           hitSlop={30}
         >
         <AntDesign name="arrowleft" size={20} color="white" />
 
-        </TouchableOpacity>
-
+        </TouchableOpacity>)}
 
 
   <Animated.View style={{ transform: [{ translateY: position }], marginTop:10}}>
@@ -50,7 +58,7 @@ export const FullPostScreen = ({ route, navigation }) => {
                 renderItem={({item }) => (
                   <Post item={item} navigation={navigation} fullScreen={true} onPress={(item)=>toggleMainPost(item)}/>
                 )}
-                onEndReached={()=>{{console.log('reached')}}}
+                onEndReached={()=>{{console.log('reached'); getMorePosts()}}}
                 onEndReachedThreshold={0.6}
                 estimatedItemSize={139}
               

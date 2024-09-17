@@ -5,7 +5,7 @@ function MoreInfoPopup({ infoScreenConfig, infoScreenVisible, onClose }) {
   return (
     <Modal transparent={true}  animationType='slide' visible={true}>
       <TouchableWithoutFeedback onPress={()=>onClose()} >
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00000080' }}>
         <View className="bg-white p-5 rounded-xl shadow-lg max-w-11/12 m-4">
           <View className="flex-row justify-between items-center mb-5">
             <Text className='text-4xl text-center font-bold'>More Info</Text>

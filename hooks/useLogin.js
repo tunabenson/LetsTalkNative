@@ -23,6 +23,7 @@ const useLogin = (navigation) => {
 
   const setURLForProfile=async(user)=>{
     try {
+      console.log('triggered test')
       let url= await getDownloadURL(ref(storage, `profilepic/${user.displayName}_200x200.jpg`));
       let miniUrl= await getDownloadURL(ref(storage, `profilepic/${user.displayName}_50x50.jpg`));
       console.log(url);

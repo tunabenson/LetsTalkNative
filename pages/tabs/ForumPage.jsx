@@ -2,7 +2,6 @@ import React from 'react'
 import LoadingPage from "../LoadingPage";
 import {  Dimensions, RefreshControl, TouchableOpacity, View } from "react-native";
 import { FlashList } from "@shopify/flash-list";
-import { SafeAreaView } from 'react-native-safe-area-context';
 import Post from '../../components/posts/Post';
 import useFetchPosts from '../../hooks/useFetchPosts';
 

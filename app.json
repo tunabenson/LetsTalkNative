@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
-      "backgroundColor": "##ffffff"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -21,7 +21,9 @@
       ],
       "package": "com.letstalkmanager.letstalk"
     },
-    "web": {},
+    "web": {
+      
+    },
     "plugins": [
       "expo-router",
       [
@@ -34,7 +36,7 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/Amiri/Amiri-Regular.ttf"
+            "./assets/fonts/Exo/ExoRegular.ttf"
           ]
         }
       ],

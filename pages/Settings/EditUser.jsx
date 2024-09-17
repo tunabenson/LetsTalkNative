@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { ImagePicker } from 'expo-image-picker';
+import * as ImagePicker from 'expo-image-picker';
 import { FontAwesome } from '@expo/vector-icons';
 import { doc, updateDoc } from 'firebase/firestore';
 import { auth, db, storage } from '../../api/firebaseConfig';
 import * as FileSystem from 'expo-file-system'
 import { ref, uploadBytes } from 'firebase/storage';
 import Toast from 'react-native-toast-message';
+import { updateProfile } from 'firebase/auth';
 function EditUser({navigation , route}) {
     const {currentBio, photoUrl}=route.params;
   const [bio, setBio] = useState(currentBio);
@@ -20,20 +21,23 @@ function EditUser({navigation , route}) {
       quality: 1,
     });
 
-    if (!result.cancelled) {
-      setProfilePic(result.uri);
+    if (!result.canceled) {
+      console.log(result)
+      
+      setProfilePic(result.assets[0].uri);
     }
   };
 
 
   const handleSubmit=async()=>{
+    setSubmitted(true);
     if(bio!==currentBio){
         await updateDoc(doc(db, 'users', auth.currentUser.uid), {bio:bio});
     }
     if(profilePic!==photoUrl){
-        auth.currentUser.photoURL=undefined;
         try {
-                const {uri}= await FileSystem.getInfoAsync(profilePic);
+              await updateProfile(auth.currentUser, {photoURL: null});
+              const {uri}= await FileSystem.getInfoAsync(profilePic);
                 const blob= await new Promise((resolve, reject)=>{
                   const xhr= new XMLHttpRequest();
                   xhr.onload=()=>{
@@ -49,7 +53,14 @@ function EditUser({navigation , route}) {
                 const save=ref(storage,  `profilepic/${auth.currentUser.displayName}.jpg`);
                 await uploadBytes(save, blob);
                 Toast.show({type:'success', text1:"Update Sucessful", text2: "Please log out and log back in to see results"})
-            } catch (error) {   
+            } catch (error) {
+              console.log(error)
+              Toast.show({type:'error', text1:"Update Failed", text2: "Please try again"})
+            }finally{
+              setSubmitted(false);
+              if(navigation.canGoBack()){
+                navigation.goBack();
+              }
             }
     }
   }
@@ -69,7 +80,7 @@ function EditUser({navigation , route}) {
       />
       <Text style={{fontFamily:'Amiri'}}  className='text-2xl font-bold mb-2 text-white'>Profile Picture:</Text>
       <TouchableOpacity onPress={handleProfilePictureChange} className="mb-4">
-          {profilePic ? (
+          {profilePic || profilePic==='' ? (
             <Image source={{ uri: profilePic }} className="w-32 h-32 rounded-full" />
           ) : (
             <View className="w-32 h-32 rounded-full bg-gray-300 flex items-center justify-center">
@@ -79,7 +90,6 @@ function EditUser({navigation , route}) {
         </TouchableOpacity>
         {!submitted?(<TouchableOpacity
         className='bg-white flex-row rounded-2xl m-24 w-1/2'
-        
           onPress={() =>{handleSubmit()}}
         >
             <Text  style={{fontFamily:'Amiri'}} className='text-lg font-bold text-black m-3 ml-9'>Submit Changes</Text>

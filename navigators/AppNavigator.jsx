@@ -20,7 +20,7 @@ function AppNavigator({signedIn}) {
    
   return (
     <NavigationContainer>
-    <Stack.Navigator screenOptions={{  title:'',  headerLeft:()=>(<Image style={{width:90, height:90 , marginBottom:20, marginLeft:150}} source={require('../assets/images/adaptive-icon.png')}/>) }}>
+    <Stack.Navigator screenOptions={{  title:'',  headerLeft:()=>(<Image style={{width:90, height:90 , marginBottom:20, marginLeft:150}} source={require('../assets/images/adaptiveicon.png')}/>) }}>
       {signedIn ? (
         <>
         <Stack.Screen name='HomePage' component={Home} />

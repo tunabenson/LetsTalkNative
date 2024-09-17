@@ -10,10 +10,10 @@ import AboutUs from '../pages/Settings/AboutUs';
 
 
 const Stack= createStackNavigator();
-function AccountNavigator({ route}) {
+function AccountNavigator({route}) {
   return (
-    <Stack.Navigator initialRouteName={'ProfilePage'} screenOptions={{headerShown:false}}>
-        <Stack.Screen name="ProfilePage" component={Account} initialParams={route.params} options={{ headerShown: false }} />
+    <Stack.Navigator initialRouteName={'ProfilePage'} screenOptions={{headerShown:false}} >
+        <Stack.Screen name="ProfilePage" component={Account} initialParams={route.params}  />
         <Stack.Screen name='Settings' component={SettingsPage} />
         <Stack.Screen name='Liked-Posts' component={LikedPosts}/>
         <Stack.Screen name='MyForums' component={MyForums} />
