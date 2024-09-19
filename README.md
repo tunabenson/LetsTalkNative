@@ -10,7 +10,7 @@ Before you begin, ensure you have the following installed:
 - Expo CLI (`npm install -g expo-cli`)
      or if using MacOS install locally:
 ```bash
-cd letsTalkApp/LetsTalk
+cd /letsTalkNative
 npm i expo-cli
 ```
 
@@ -20,8 +20,8 @@ Follow these steps to get your development environment set up:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/tunabenson/letsTalkApp.git
-   cd letsTalkApp/LetsTalk
+   git clone https://github.com/tunabenson/LetsTalkNative.git
+   cd LetsTalkNative
    ```
 
 2. **Install Dependencies**
@@ -33,7 +33,7 @@ Follow these steps to get your development environment set up:
    - The app requires a Firebase configuration to connect to Firebase services.
    - You will receive an error related to Firebase connection on initial startup.
    - To resolve this, please email `katz.ofek23@gmail.com` to request the Firebase configuration file.
-   - Once you receive the configuration, paste it into the `LetsTalk/api/firebaseConfig.js` file in the project directory.
+   - Once you receive the configuration, paste it into the `/api/firebaseConfig.js` file in the project directory.
 
 4. **Start the Application**
    ```bash
