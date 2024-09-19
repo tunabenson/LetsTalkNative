@@ -46,7 +46,7 @@ const Post = (props) => {
     >
     
       <View className="absolute top-2 right-3 flex-row items-center">
-        <TouchableOpacity hitSlop={{right:54, left:54, bottom:54, top:54}} onPress={() => {showPopup({isOwner: isPostOwner, path:item.path, text:item.text, forum:item?.forum, author:item.user, editDate:item?.lastEdited || item?.date, path: item?.path})}}>
+        <TouchableOpacity hitSlop={{right:54, left:54, bottom:54, top:54}} onPress={() => {showPopup({isOwner: isPostOwner, path:item.path, text:item.text, forum:item?.forum, author:item.user, editDate:item?.lastEdited || item?.date})}}>
           <Entypo name="dots-three-horizontal" size={24} color="#4D5057" />
         </TouchableOpacity>
       </View>
@@ -74,7 +74,7 @@ const Post = (props) => {
      </View>
       <Text style={{fontFamily:'Amiri'}} className="text-md text-gray-800 pb-2 mt-5">{item?.text}</Text>
 
-      {item?.article && props?.fullScreen &&  (
+      {item?.article  &&  (
             <RenderedArticle article={item.article}/>
           )
           }

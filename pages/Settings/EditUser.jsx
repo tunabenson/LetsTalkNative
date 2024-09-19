@@ -58,10 +58,13 @@ function EditUser({navigation , route}) {
               Toast.show({type:'error', text1:"Update Failed", text2: "Please try again"})
             }finally{
               setSubmitted(false);
-              if(navigation.canGoBack()){
-                navigation.goBack();
-              }
+             
             }
+    }
+    else{
+      if(navigation.canGoBack()){
+        navigation.goBack();
+      }
     }
   }
 
@@ -81,7 +84,7 @@ function EditUser({navigation , route}) {
       <Text style={{fontFamily:'Amiri'}}  className='text-2xl font-bold mb-2 text-white'>Profile Picture:</Text>
       <TouchableOpacity onPress={handleProfilePictureChange} className="mb-4">
           {profilePic || profilePic==='' ? (
-            <Image source={{ uri: profilePic }} className="w-32 h-32 rounded-full" />
+            <Image source={{ uri: profilePic }} className="w-32 h-32 rounded-full bg-white" />
           ) : (
             <View className="w-32 h-32 rounded-full bg-gray-300 flex items-center justify-center">
               <FontAwesome name="camera" size={32} color="white" />

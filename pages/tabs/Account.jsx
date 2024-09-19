@@ -1,31 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Pressable, Platform, TouchableOpacity } from 'react-native';
-import { collection, getDocs, limit, orderBy, query, where } from 'firebase/firestore';
-import { auth, db, userBlurhash } from '../../api/firebaseConfig';
+import React from 'react';
+import { View, Text, FlatList, Pressable, Image } from 'react-native';
+import { auth, userBlurhash } from '../../api/firebaseConfig';
 import Post from '../../components/posts/Post';
-import { createStackNavigator } from '@react-navigation/stack';
-import { FullPostScreen } from '../ExpandedPosts/FullPostScreen';
 import LoadingPage from '../LoadingPage';
-import SettingsPage from '../Settings/SettingsPage';
-import { AntDesign, FontAwesome, MaterialIcons } from '@expo/vector-icons';
-import { Image } from 'expo-image';
+import {  FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import useAccount from '../../hooks/useAccount';
 import PlatformDependantExit from '../../components/utility/PlatformDependantExit';
-import SettingsNavigator from '../../navigators/AccountNavigator';
-const fetchPostsByUsername = async (username) => {
-  const postsQuery = query(collection(db, "posts"), where('username', '==', username), orderBy("date", 'desc'), limit(15));
-  const snap = await getDocs(postsQuery);
-  const temp = [];
 
-  for (const document of snap.docs) {
-    const postData = { ...document.data(), id: document.id, path: document.ref.path };
-    temp.push(postData);
-  }
-
-  return temp;
-};
-
-const Stack = createStackNavigator();
 
 const Account = ({ route, navigation }) => {
   const { username } = route.params;
@@ -42,7 +23,7 @@ const Account = ({ route, navigation }) => {
 
       <View className="flex-row items-center mb-4 mt-7">
         {account.url !== ' ' ?(<Image
-          className="w-24 h-24  bg-slate-400 rounded-full border-4 border-white"
+          className="w-24 h-24  bg-white rounded-full border-4 border-white"
           source={{ uri: account.url }}
           placeholder={{blurhash: userBlurhash}}
         />):(<View className="relative w-24 h-24 bg-white rounded-full  border-white">
