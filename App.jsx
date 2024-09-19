@@ -13,10 +13,8 @@ export default function App() {
   if (!authChecked || (!loaded && !error)) {
     return null; 
   }
-  // if(true){
-  //   console.log=()=>{}
-  //   console.warn=()=>{}
-  // }
+  console.log=()=>{}
+  console.warn=()=>{}
   return (
   <View onLayout={onLayoutRootView} style={{ flex: 1, backgroundColor: 'black' }}>   
     <PopupMenuProvider>

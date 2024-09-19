@@ -60,7 +60,7 @@ function RequestForumScreen({ navigation }) {
       if(response.message==='Success'){
       navigation.goBack();
       addDoc(collection(db, 'requests'), {
-        forumName, 
+        name:forumName, 
         description,
         date:Timestamp.now(),
         author:auth.currentUser.displayName
