@@ -1,8 +1,7 @@
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import React, { useRef } from 'react'
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
-import { Path, Svg, SvgFromXml, SvgXml } from 'react-native-svg';
-import { vote_nay } from '../../../assets/icons/vote-nay';
+import { Path, Svg } from 'react-native-svg';
 
 /**
  * this component is used to render the interactions component of the Post parent Component
