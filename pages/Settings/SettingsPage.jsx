@@ -10,21 +10,21 @@ const SettingsPage = ({navigation, route}) => {
     <ScrollView className="flex-1 bg-primarycolor-4">
       <View className=' p-3'></View>
       <Option 
-        style="p-2 mt-2 flex-row bg-white rounded-xl border border-b-4 border-red-600 "
+        style="p-2 mt-2 flex-row bg-white rounded-xl border  "
         handler={()=>navigation.navigate('EditAccount',{...route.params})}
         icon={<FontAwesome name="user" size={24} color="#4D5057" />}
         text="Edit Profile"
         textStyle="text-gray-600 text-xl font-semibold ml-2"
       />
       <Option 
-        style="p-2 mt-2 flex-row bg-white rounded-xl border border-b-4 border-red-600 "
+        style="p-2 mt-2 flex-row bg-white rounded-xl border  "
         handler={()=>navigation.navigate('MyForums')}
         icon={<Octicons name="comment-discussion" size={24} color="#4D5057" />}
         text="See My Forums"
         textStyle="text-gray-600 text-xl font-semibold ml-2"
       />
       <Option 
-        style="p-2 mt-2 flex-row bg-white rounded-xl border border-b-4 border-red-600 "
+        style="p-2 mt-2 flex-row bg-white rounded-xl border "
         handler={()=>{Toast.show({type:'info', text1:'Feature Unavailable', text2:'Sorry this feature is currently unavailable'})}}
         icon={<AntDesign name="heart" size={24} color="#4D5057" />}
         text="My Liked Posts"
@@ -32,7 +32,7 @@ const SettingsPage = ({navigation, route}) => {
       />
 
       <Option 
-        style="p-2 mt-2 flex-row bg-white rounded-xl border border-b-4 border-red-600 "
+        style="p-2 mt-2 flex-row bg-white rounded-xl border  "
         handler={()=>{navigation.navigate('About')}}
         icon={<FontAwesome name="book" size={24} color="#4D5057" />}
         text="About"
@@ -41,7 +41,7 @@ const SettingsPage = ({navigation, route}) => {
 
       {/* Themes and Customization */}
       <Option 
-        style="p-2 mt-2 flex-row bg-white rounded-xl border border-b-4 border-red-600 "
+        style="p-2 mt-2 flex-row bg-white rounded-xl border  "
         handler={()=>auth.signOut()}
         icon={<FontAwesome name="sign-out" size={24} color="#4D5057" />}
         text="Sign Out"
